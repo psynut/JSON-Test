@@ -30,8 +30,12 @@ public class JSONRecorder : MonoBehaviour {
 		
 	}
 
-	public void RecordIdName(int i, string s) {
+	public void ButtonPush(){
+	RecordIdName(id, nameString);
+	}
 
+	void RecordIdName(int i, string s) {
+	Debug.Log("Saving JSON of ID & Name @ " + path);
 	myClass = new MyClass(i, s);
 
 	string contents = JsonUtility.ToJson (myClass);
