@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class JSONRecorder : MonoBehaviour {
 
@@ -27,5 +28,14 @@ public class JSONRecorder : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void RecordIdName(int i, string s) {
+
+	myClass = new MyClass(i, s);
+
+	string contents = JsonUtility.ToJson (myClass);
+	File.WriteAllText (path, contents);
+
 	}
 }
