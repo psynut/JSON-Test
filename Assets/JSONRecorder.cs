@@ -8,9 +8,9 @@ public class JSONRecorder : MonoBehaviour {
 	private string path;
 	private string filename = "MyList.JSON";
 
-	public int id = 22;
-	public string nameString = "BubbaGump";
-	public double doubleNum = 4.00;
+	public int id;
+	public string nameString;
+	public double doubleNum;
 
 
 	//Will still need to initialize, but it makes sense to initialize in start.
@@ -37,6 +37,8 @@ public class JSONRecorder : MonoBehaviour {
 	void RecordIdName(int i, string s) {
 	Debug.Log("Saving JSON of ID & Name @ " + path);
 	myClass = new MyClass(i, s);
+	myListClass = new MyListClass(myClass);
+	//myListClass = new MyListClass
 
 	string contents = JsonUtility.ToJson (myClass);
 	File.WriteAllText (path, contents);
