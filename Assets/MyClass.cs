@@ -10,6 +10,8 @@ public class MyClass{
 	public string theName;
 	public double doubleNumber;
 
+        [System.Serializable]
+
 	public MyClass(int id, string name){
 		identity = id;
 		theName = name; 
