@@ -6,6 +6,6 @@ using UnityEngine;
 
 public class MyListClass{
 
-	public List<MyClass> myList;
+	public List<string> myList;
 
 }

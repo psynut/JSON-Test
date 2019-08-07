@@ -12,22 +12,15 @@ public class JSONRecorder : MonoBehaviour {
 	public string nameString;
 	public double doubleNum;
 
+	List<string> myList = new List<string>();
+
 	MyClass myClass;
-
-	List<MyClass> myList = new List<MyClass>();
-	List<string> stringList;
-
-	MyListClass myListClass;
+	MyListClass myListClass = new MyListClass();
 
 	// Use this for initialization
 	void Start () {
 		filename = "MyList.JSON";
 		path = Application.persistentDataPath + "/" +filename;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 	public void ButtonPush(){
@@ -38,27 +31,18 @@ public class JSONRecorder : MonoBehaviour {
 		if(File.Exists(path)){
 			string contents = File.ReadAllText(path);
 			myListClass = JsonUtility.FromJson<MyListClass>(contents);
-			//string = JsonUtility.FromJson<string>(contents);
-			myList = myListClass.myList;
-			}
+			myList = new List<string>(myListClass.myList);
+		}
+
 	}
 
 	void RecordIdName(int i, string s) {
-
-	//PullData();            Put this back on once you figure out how to write the muListClass to JSON
-	Debug.Log("Saving JSON of ID & Name @ " + path);
-	myClass = new MyClass(i, s);
-	myList.Add(myClass);
-
-	Debug.Log("myClass is " + myClass);
-	Debug.Log("myList = " + myList);
-	//myListClass.myList = myList;
-
-	//myListClass = new MyListClass
-	string contents = JsonUtility.ToJson (myClass);
-	//stringList = new List<string>(contents);
-	//string contents = JsonUtility.ToJson (myListClass);
-	File.WriteAllText (path, contents);
-
+		PullData();
+		myClass = new MyClass(i, s);
+		Debug.Log(myClass.ToString());
+		myList.Add(myClass.ToString());
+		myListClass.myList = myList;
+		string contents = JsonUtility.ToJson(myListClass);
+		File.WriteAllText (path, contents);
 	}
 }

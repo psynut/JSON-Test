@@ -21,8 +21,9 @@ public class MyClass{
 		doubleNumber = num;
 	}
 
-	public string ToString(){
-	string m_string = "\"identity\":" + identity + ",\"theName\":" + theName + ",\"doubleNumber\":" + doubleNumber;
-	return m_string;
-	}
+//	public string StringMyClass(){
+//	string m_string = "\"identity\":" + identity + "\"theName\":" + theName + "\"doubleNumber\":" + doubleNumber;
+//	return m_string;
+//	}
+
 }
