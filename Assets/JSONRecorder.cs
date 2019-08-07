@@ -37,9 +37,9 @@ public class JSONRecorder : MonoBehaviour {
 	void PullData(){
 		if(File.Exists(path)){
 			string contents = File.ReadAllText(path);
-			//myListClass = JsonUtility.FromJson<MyListClass>(contents);
-			stringF = JsonUtility.FromJson<string>(contents);
-			//myList = myListClass.myList;
+			myListClass = JsonUtility.FromJson<MyListClass>(contents);
+			//string = JsonUtility.FromJson<string>(contents);
+			myList = myListClass.myList;
 			}
 	}
 
@@ -49,16 +49,14 @@ public class JSONRecorder : MonoBehaviour {
 	Debug.Log("Saving JSON of ID & Name @ " + path);
 	myClass = new MyClass(i, s);
 	myList.Add(myClass);
-	myClass = new MyClass(1, "mememe");
-	myList.Add(myClass);
 
-	Debug.Log("myClass identity is " + myClass.identity);
+	Debug.Log("myClass is " + myClass);
 	Debug.Log("myList = " + myList);
 	//myListClass.myList = myList;
 
 	//myListClass = new MyListClass
 	string contents = JsonUtility.ToJson (myClass);
-	stringList = new List<string>(contents);
+	//stringList = new List<string>(contents);
 	//string contents = JsonUtility.ToJson (myListClass);
 	File.WriteAllText (path, contents);
 

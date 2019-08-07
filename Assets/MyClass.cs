@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+
 public class MyClass{
 
 	public int identity;
@@ -19,6 +21,8 @@ public class MyClass{
 		doubleNumber = num;
 	}
 
-	public string ToString();
-	return "\"identity\":" + identity + ",\"theName\":" + theName + ",\"doubleNumber\":" + doubleNumber"
+	public string ToString(){
+	string m_string = "\"identity\":" + identity + ",\"theName\":" + theName + ",\"doubleNumber\":" + doubleNumber;
+	return m_string;
+	}
 }
