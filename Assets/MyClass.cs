@@ -18,4 +18,7 @@ public class MyClass{
 		theName = name;
 		doubleNumber = num;
 	}
+
+	public string ToString();
+	return "\"identity\":" + identity + ",\"theName\":" + theName + ",\"doubleNumber\":" + doubleNumber"
 }
