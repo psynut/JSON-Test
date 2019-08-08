@@ -39,10 +39,11 @@ public class JSONRecorder : MonoBehaviour {
 	void RecordIdName(int i, string s) {
 		PullData();
 		myClass = new MyClass(i, s);
-		Debug.Log(myClass.ToString());
-		myList.Add(myClass.ToString());
+		string stringClass = myClass.ToString();
+		Debug.Log(stringClass);
+		myList.Add(stringClass);
 		myListClass.myList = myList;
-		string contents = JsonUtility.ToJson(myListClass);
+		string contents = JsonUtility.ToJson(myClass);
 		File.WriteAllText (path, contents);
 	}
 }
