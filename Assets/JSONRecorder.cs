@@ -24,6 +24,7 @@ public class JSONRecorder : MonoBehaviour {
 	}
 
 	public void ButtonPush(){
+	RecordIdName(id, nameString, doubleNum);
 	RecordIdName(id, nameString);
 	}
 
@@ -39,11 +40,18 @@ public class JSONRecorder : MonoBehaviour {
 	void RecordIdName(int i, string s) {
 		PullData();
 		myClass = new MyClass(i, s);
-		string stringClass = myClass.ToString();
-		Debug.Log(stringClass);
-		myList.Add(stringClass);
+		myList.Add(myClass.ToString());
 		myListClass.myList = myList;
-		string contents = JsonUtility.ToJson(myClass);
+		string contents = JsonUtility.ToJson(myListClass);
+		File.WriteAllText (path, contents);
+	}
+
+	void RecordIdName(int i, string s, double d) {
+		PullData();
+		myClass = new MyClass(i, s, d);
+		myList.Add(myClass.ToString());
+		myListClass.myList = myList;
+		string contents = JsonUtility.ToJson(myListClass);
 		File.WriteAllText (path, contents);
 	}
 }
