@@ -13,7 +13,7 @@ public class JSONRecorder : MonoBehaviour {
 	public double doubleNum;
 
 	List<string> myList = new List<string>();
-	List<myClass> myClassList = new List<MyClass>();
+	List<MyClass> myClassList = new List<MyClass>();
 
 	public MyClass myClass;
 
@@ -30,7 +30,7 @@ public class JSONRecorder : MonoBehaviour {
 	void PullData(){
 		if(File.Exists(path)){
 			string contents = File.ReadAllText(path);
-			myClassList = JsonUtility.FromJson<List>(contents);
+			myClassList = JsonUtility.FromJson<List<MyClass>>(contents);
 		}
 
 	}
