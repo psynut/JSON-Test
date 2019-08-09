@@ -12,19 +12,16 @@ public class JSONRecorder : MonoBehaviour {
 	public string nameString;
 	public double doubleNum;
 
-	List<string> myList = new List<string>();
-	List<MyClass> myClassList = new List<MyClass>();
-
 	public MyClass myClass;
+	public List<MyClass> myClassList;
 
 	// Use this for initialization
 	void Start () {
-		filename = "MyList.JSON";
+		myClassList = new List<MyClass>();
 		path = Application.persistentDataPath + "/" +filename;
 	}
 
 	public void ButtonPush(){
-	RecordIdName(id, nameString, doubleNum);
 	RecordIdName(id, nameString);
 	}
 
@@ -43,7 +40,8 @@ public class JSONRecorder : MonoBehaviour {
 		//Debug.Log(stringClass);
 		//myList.Add(stringClass);
 		myClassList.Add(myClass);
-		string contents = JsonUtility.ToJson(myClass);
+		string contents = JsonUtility.ToJson(myClassList);
 		File.WriteAllText (path, contents);
+		Debug.Log(myClassList[0]);
 	}
 }

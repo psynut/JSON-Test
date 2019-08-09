@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//[System.Serializable]
+[System.Serializable]
 
 public class MyClass{
 
@@ -11,14 +11,14 @@ public class MyClass{
 	public double doubleNumber;
 
 	public MyClass(int id, string name){
-		identity = id;
-		theName = name; 
+		this.identity = id;
+		this.theName = name; 
 	}
 
 	public MyClass(int id, string name, double num){
-		identity = id;
-		theName = name;
-		doubleNumber = num;
+		this.identity = id;
+		this.theName = name;
+		this.doubleNumber = num;
 	}
 
 	public override string ToString(){
