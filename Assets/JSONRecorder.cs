@@ -13,9 +13,9 @@ public class JSONRecorder : MonoBehaviour {
 	public double doubleNum;
 
 	List<string> myList = new List<string>();
+	List<MyClass> myClassList = new List<MyClass>();
 
-	MyClass myClass;
-	MyListClass myListClass = new MyListClass();
+	public MyClass myClass;
 
 	// Use this for initialization
 	void Start () {
@@ -31,8 +31,7 @@ public class JSONRecorder : MonoBehaviour {
 	void PullData(){
 		if(File.Exists(path)){
 			string contents = File.ReadAllText(path);
-			myListClass = JsonUtility.FromJson<MyListClass>(contents);
-			myList = new List<string>(myListClass.myList);
+			myClassList = JsonUtility.FromJson<List<MyClass>>(contents);
 		}
 
 	}
@@ -40,18 +39,11 @@ public class JSONRecorder : MonoBehaviour {
 	void RecordIdName(int i, string s) {
 		PullData();
 		myClass = new MyClass(i, s);
-		myList.Add(myClass.ToString());
-		myListClass.myList = myList;
-		string contents = JsonUtility.ToJson(myListClass);
-		File.WriteAllText (path, contents);
-	}
-
-	void RecordIdName(int i, string s, double d) {
-		PullData();
-		myClass = new MyClass(i, s, d);
-		myList.Add(myClass.ToString());
-		myListClass.myList = myList;
-		string contents = JsonUtility.ToJson(myListClass);
+		//string stringClass = myClass.ToString();
+		//Debug.Log(stringClass);
+		//myList.Add(stringClass);
+		myClassList.Add(myClass);
+		string contents = JsonUtility.ToJson(myClass);
 		File.WriteAllText (path, contents);
 	}
 }
