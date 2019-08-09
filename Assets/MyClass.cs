@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+//[System.Serializable]
 
 public class MyClass{
 
@@ -22,7 +22,7 @@ public class MyClass{
 	}
 
 	public override string ToString(){
-		string m_string = "\"identity\":" + identity + ",\"theName\":" + theName + ",\"doubleNumber\":" + doubleNumber;
+		string m_string = "\n\"identity\":" + identity + ",\"theName\":" + theName + ",\"doubleNumber\":" + doubleNumber;
 		return m_string;
 	}
 

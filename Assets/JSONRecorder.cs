@@ -24,6 +24,7 @@ public class JSONRecorder : MonoBehaviour {
 	}
 
 	public void ButtonPush(){
+	RecordIdName(id, nameString, doubleNum);
 	RecordIdName(id, nameString);
 	}
 
