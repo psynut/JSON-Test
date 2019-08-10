@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.IO;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class JSONRecorder : MonoBehaviour {
 
@@ -12,6 +13,8 @@ public class JSONRecorder : MonoBehaviour {
 	public string nameString;
 	public double doubleNum;
 
+	public InputField idInput, nameInput, doubleInput;
+
 	public MyClass myClass;
 	public MyClassList myClassList =  new MyClassList();
 
@@ -20,7 +23,14 @@ public class JSONRecorder : MonoBehaviour {
 	}
 
 	public void ButtonPush(){
-	RecordIdName(id, nameString);
+		GetInputValues ();
+		RecordIdName(id, nameString, doubleNum);
+	}
+
+	void GetInputValues(){
+		id = int.Parse (idInput.text);
+		nameString = nameInput.text;
+		doubleNum = double.Parse(doubleInput.text);
 	}
 
 	void PullData(){
@@ -30,9 +40,9 @@ public class JSONRecorder : MonoBehaviour {
 		}
 	}
 
-	void RecordIdName(int i, string s) {
+	void RecordIdName(int i, string s, double d) {
 		PullData();
-		myClass = new MyClass(i, s);
+		myClass = new MyClass(i, s, d);
 		myClassList.classList.Add(myClass);
 		string contents = JsonUtility.ToJson(myClassList);
 		File.WriteAllText (path, contents);
