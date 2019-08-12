@@ -46,6 +46,5 @@ public class JSONRecorder : MonoBehaviour {
 		myClassList.classList.Add(myClass);
 		string contents = JsonUtility.ToJson(myClassList);
 		File.WriteAllText (path, contents);
-		Debug.Log(myClassList.classList[0]);
 	}
 }

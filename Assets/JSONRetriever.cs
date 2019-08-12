@@ -13,7 +13,7 @@ public class JSONRetriever : MonoBehaviour {
 
 	public Dropdown dropdown;
 
-	private MyClassList myClassList;
+	public MyClassList myClassList;
 
 	// Use this for initialization
 	void Start () {
@@ -32,14 +32,31 @@ public class JSONRetriever : MonoBehaviour {
 			string contents = File.ReadAllText (path);
 			myClassList = JsonUtility.FromJson<MyClassList> (contents);
 		} else {
-			myClassList = new MyClassList ();
+			List<MyClass> freshList = new List<MyClass>();
+			myClassList.classList = freshList;
+			Debug.Log(myClassList.classList.Count);
 		}
 	}
 
-	private void SetupDropdown(){
+	public void SetupDropdown(){
+		dropdown.ClearOptions;
+			List<string> options = new List<string>();
 		for (int i = 0; i < myClassList.classList.Count; i++) {
-			dropdown.AddOptions(new List<Dropdown.OptionData>(i.ToString()));
+			if (i > 0){
+				options.Add(i.ToString());
+			}
 		}
+		dropdown.AddOptions(options);
 	}
 
+	public void DropdownSelected(int j){
+		MyClass myClass = RetrieveMyClass(j);
+		idText.text = myClass.identity.ToString();
+		nameText.text = myClass.theName;
+		doubleText.text = myClass.doubleNumber.ToString();
+	}
+
+	private MyClass RetrieveMyClass(int j){
+		return myClassList.classList[j];
+	}
 }
