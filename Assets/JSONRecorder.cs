@@ -9,11 +9,11 @@ public class JSONRecorder : MonoBehaviour {
 	private string path;
 	private string filename = "MyList.JSON";
 
-	public int id;
+	public int integer;
 	public string nameString;
 	public double doubleNum;
 
-	public InputField idInput, nameInput, doubleInput;
+	public InputField integerInput, nameInput, doubleInput;
 
 	public MyClass myClass;
 	public MyClassList myClassList =  new MyClassList();
@@ -24,11 +24,11 @@ public class JSONRecorder : MonoBehaviour {
 
 	public void ButtonPush(){
 		GetInputValues ();
-		RecordIdName(id, nameString, doubleNum);
+		RecordIntegerName(integer, nameString, doubleNum);
 	}
 
 	void GetInputValues(){
-		id = int.Parse (idInput.text);
+		integer = int.Parse (integerInput.text);
 		nameString = nameInput.text;
 		doubleNum = double.Parse(doubleInput.text);
 	}
@@ -40,12 +40,11 @@ public class JSONRecorder : MonoBehaviour {
 		}
 	}
 
-	void RecordIdName(int i, string s, double d) {
+	void RecordIntegerName(int i, string s, double d) {
 		PullData();
 		myClass = new MyClass(i, s, d);
 		myClassList.classList.Add(myClass);
 		string contents = JsonUtility.ToJson(myClassList);
 		File.WriteAllText (path, contents);
-		Debug.Log("Saving JSON");
 	}
 }

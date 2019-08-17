@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 271069038}
   - component: {fileID: 271069037}
   m_Layer: 5
-  m_Name: ID Input
+  m_Name: Integer Input
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87cdf2964abf0104482cd86bbc04587e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idText: {fileID: 2014023451}
+  integerText: {fileID: 2014023451}
   nameText: {fileID: 300630649}
   doubleText: {fileID: 779012237}
   dropdown: {fileID: 279656785}
@@ -2293,14 +2293,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7029893cbf9c3444995bf45ef55fd50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  integer: 0
   nameString: 
   doubleNum: 0
-  idInput: {fileID: 271069037}
+  integerInput: {fileID: 271069037}
   nameInput: {fileID: 618236356}
   doubleInput: {fileID: 263514014}
   myClass:
-    identity: 0
+    integer: 0
     theName: 
     doubleNumber: 0
   myClassList:
@@ -2757,7 +2757,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'ID: --'
+  m_Text: 'Integer: --'
 --- !u!222 &2014023452
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2796,7 +2796,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -33, y: -0.5}
+  m_AnchoredPosition: {x: -72, y: -0.5}
   m_SizeDelta: {x: 84, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2027367980
@@ -2831,7 +2831,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'ID:'
+  m_Text: 'Integer:'
 --- !u!222 &2027367981
 CanvasRenderer:
   m_ObjectHideFlags: 0

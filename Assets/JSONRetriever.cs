@@ -9,7 +9,7 @@ public class JSONRetriever : MonoBehaviour {
 	private string path;
 	private string filename = "MyList.JSON";
 
-	public Text idText, nameText, doubleText;
+	public Text integerText, nameText, doubleText;
 
 	public Dropdown dropdown;
 
@@ -33,12 +33,13 @@ public class JSONRetriever : MonoBehaviour {
 		} else {
 			List<MyClass> freshList = new List<MyClass>();
 			myClassList.classList = freshList;
+			string contents = JsonUtility.ToJson(myClassList);
+			File.WriteAllText (path, contents);
 		}
-		Debug.Log(myClassList.classList.Count);
 	}
 
 	public void SetupDropdown(){
-		Debug.Log ("Running SetupDropdown()");
+		readJSON();
 		dropdown.ClearOptions();
 			List<string> options = new List<string>();
 		for (int i = 0; i < myClassList.classList.Count; i++) {
@@ -48,9 +49,9 @@ public class JSONRetriever : MonoBehaviour {
 	}
 
 	public void DropdownSelected(int j){
-		readJSON();
+		Debug.Log("DropdownSelected(" + j + ")");
 		MyClass myClass = RetrieveMyClass(j);
-		idText.text = myClass.identity.ToString();
+		integerText.text = myClass.integer.ToString();
 		nameText.text = myClass.theName;
 		doubleText.text = myClass.doubleNumber.ToString();
 	}
