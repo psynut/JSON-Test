@@ -39,7 +39,7 @@ public class JSONRetriever : MonoBehaviour {
 	}
 
 	public void SetupDropdown(){
-		dropdown.ClearOptions;
+		dropdown.ClearOptions();
 			List<string> options = new List<string>();
 		for (int i = 0; i < myClassList.classList.Count; i++) {
 			if (i > 0){
