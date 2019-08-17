@@ -39,6 +39,7 @@ public class JSONRetriever : MonoBehaviour {
 	}
 
 	public void SetupDropdown(){
+		Debug.Log ("Running SetupDropdown()");
 		dropdown.ClearOptions();
 			List<string> options = new List<string>();
 		for (int i = 0; i < myClassList.classList.Count; i++) {
