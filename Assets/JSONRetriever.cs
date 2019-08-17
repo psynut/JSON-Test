@@ -29,13 +29,12 @@ public class JSONRetriever : MonoBehaviour {
 
 	private void CheckForFile (){
 		if (File.Exists (path)) {
-			string contents = File.ReadAllText (path);
-			myClassList = JsonUtility.FromJson<MyClassList> (contents);
+			readJSON();
 		} else {
 			List<MyClass> freshList = new List<MyClass>();
 			myClassList.classList = freshList;
-			Debug.Log(myClassList.classList.Count);
 		}
+		Debug.Log(myClassList.classList.Count);
 	}
 
 	public void SetupDropdown(){
@@ -43,14 +42,13 @@ public class JSONRetriever : MonoBehaviour {
 		dropdown.ClearOptions();
 			List<string> options = new List<string>();
 		for (int i = 0; i < myClassList.classList.Count; i++) {
-			if (i > 0){
 				options.Add(i.ToString());
-			}
 		}
 		dropdown.AddOptions(options);
 	}
 
 	public void DropdownSelected(int j){
+		readJSON();
 		MyClass myClass = RetrieveMyClass(j);
 		idText.text = myClass.identity.ToString();
 		nameText.text = myClass.theName;
@@ -59,5 +57,10 @@ public class JSONRetriever : MonoBehaviour {
 
 	private MyClass RetrieveMyClass(int j){
 		return myClassList.classList[j];
+	}
+
+	private void readJSON(){
+		string contents = File.ReadAllText (path);
+		myClassList = JsonUtility.FromJson<MyClassList> (contents);
 	}
 }
