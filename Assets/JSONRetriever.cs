@@ -60,7 +60,6 @@ public class JSONRetriever : MonoBehaviour {
 	// When the selection is chosen in the dropdown menu, display the fields in the text fields above
 	//The integer passed to the function by the dropdown object is the list[int] rather than the string from the dropdown.
 	public void DropdownSelected(int j){
-		Debug.Log("DropdownSelected(" + j + ")");
 		MyClass myClass = RetrieveMyClass(j);
 		integerText.text = myClass.integer.ToString();
 		nameText.text = myClass.theName;
