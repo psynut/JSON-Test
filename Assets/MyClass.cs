@@ -6,24 +6,18 @@ using UnityEngine;
 
 public class MyClass{
 
-	public int identity;
+	public int integer;
 	public string theName;
 	public double doubleNumber;
 
-	public MyClass(int id, string name){
-		this.identity = id;
+	public MyClass(int i, string name){
+		this.integer = i;
 		this.theName = name; 
 	}
 
-	public MyClass(int id, string name, double num){
-		this.identity = id;
+	public MyClass(int i, string name, double num){
+		this.integer = i;
 		this.theName = name;
 		this.doubleNumber = num;
 	}
-
-	public override string ToString(){
-		string m_string = "\n\"identity\":" + identity + ",\"theName\":" + theName + ",\"doubleNumber\":" + doubleNumber;
-		return m_string;
-	}
-
 }
