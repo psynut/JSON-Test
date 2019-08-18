@@ -47,15 +47,18 @@ public class JSONRetriever : MonoBehaviour {
 	public void SetupDropdown(){
 		readJSON();
 		dropdown.ClearOptions();
-			List<string> options = new List<string>();
+		List<string> options = new List<string>();
 		for (int i = 0; i < myClassList.classList.Count; i++) {
-				options.Add(i.ToString());
+			options.Add((i+1).ToString());
 		}
 		dropdown.AddOptions(options);
+		if (options.Count == 1) {
+			DropdownSelected (0);
+		}
 	}
-
-	//TODO figure out how to make this work if there is only one instance of MyClass
-	// When the selection is chosen in the dropdown menu, display the fields in the text fields aboe
+		
+	// When the selection is chosen in the dropdown menu, display the fields in the text fields above
+	//The integer passed to the function by the dropdown object is the list[int] rather than the string from the dropdown.
 	public void DropdownSelected(int j){
 		Debug.Log("DropdownSelected(" + j + ")");
 		MyClass myClass = RetrieveMyClass(j);
