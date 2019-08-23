@@ -10,4 +10,4 @@ I set this up to see if I could make a more efficient system of creating a class
 Now I have this as a reference for a system of serializing/deserializing nested classes.
 I can now also apply this to the app that I was working on.
 
-https://itch.io/embed/472362
+https://msibrava.itch.io/json-test
