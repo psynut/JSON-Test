@@ -5,7 +5,7 @@
  
  I suspected I had done this "wrong" -- ineffeciently or sloppily.
  
-I set this up to see if I could make a more efficient system of creating a class (even with multiple constructs) and then nest it that class in a list class in order to serialize the list as a JSON file. It certainly works.
+I set this up to see if I could make a more efficient system of creating a class (even with multiple constructs) and then nest that class in a list class in order to serialize the list as a JSON file. It certainly works.
 
 Now I have this as a reference for a system of serializing/deserializing nested classes.
 I can now also apply this to the app that I was working on.
